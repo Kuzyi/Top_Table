@@ -1,0 +1,351 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Marker+Hatch&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hind&display=swap');
+
+:root {
+  --color-1: #5cc2cc;
+  --color-2: #0c717e;
+  --color-3: #4c4b4e;
+  --color-4: #838c8b;
+  --color-5: #746c71;
+  --color-6: #c0c6cc;
+  --color-7: #f4f3f7;
+  --color-8: #273a47;
+  --color-9: #eaf4f6;
+  --color-10: #6d727a;
+  --color-11: #000000;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-7);
+}
+
+button {
+  border: 0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0.8em 1.2em;
+  font-size: 1.1rem;
+}
+
+button,
+input {
+  border-radius: 8px;
+}
+
+
+
+
+
+
+
+/* NAV */
+
+header {
+  color: rgb(0, 0, 0);
+  max-height: 4em;
+  display: flex;
+  align-items: center;
+background-color: var(--color-11);
+}
+
+.kelp-logo{
+  width:15%;
+  margin-top: 5px;
+}
+
+nav {
+  margin-right: 1em;
+  display: flex;
+}
+
+nav a,
+nav h3 {
+  text-decoration-color: var(--color-11);
+  margin: auto 1em;
+  color: var(--color-7);
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-weight: 800;
+  transition: all 0.2s ease;
+}
+
+nav a:hover {
+  color: var(--color-1);
+  text-decoration-color: var(--color-1);
+}
+
+
+
+
+
+
+/* HOME */
+
+main {
+  min-height: calc(100vh - 4em);
+}
+
+.home-container img {
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+.home-container button {
+  padding: 0.8em 1.2em;
+  background-color: var(--color-11);
+  color: var(--color-9);
+  font-size: 1.1rem;
+}
+
+.home-container button:hover {
+  transform: scale(1.1);
+  background-color: var(--color-11);
+  box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+
+.card {
+  width: 350px;
+  min-height: 500px;
+  background-color: var(--color-11);
+  color: var(--color-6);
+  border-radius: 8px;
+  padding: 1em;
+}
+
+.card img {
+  width: 100%;
+}
+
+.home-container,
+.signin {
+  min-height: calc(100vh - 4em);
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+
+
+
+
+
+/* REGISTER and SIGNIN */
+
+
+.card-overlay {
+  width: 60%;
+  padding: 1em;
+  border-radius: 8px;
+  box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+.input-wrapper input {
+  padding: 0.6em 1.2em;
+  margin: 0.5em auto;
+  width: 100%;
+  border-color: var(--color-11);
+  font-size: 1.1rem;
+  outline: none;
+  margin-left: -10%;
+}
+
+.input-wrapper {
+  width: 80%;
+  margin: 0;
+  padding: 0;
+}
+
+.col-4 {
+  grid-template-columns: repeat(auto-fill, 400px);
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.welcome-signin{
+  display: flex;
+  justify-content: center;
+}
+form,
+.input-wrapper {
+  margin: auto;
+  width: 80%;
+}
+
+form label {
+  align-self: flex-start;
+}
+
+input::placeholder {
+  opacity: 0.7;
+}
+
+form button {
+  background-color: var(--color-11);
+  margin: 1em 0;
+  color: var(--color-7);
+  align-self: center;
+  width: 100%;
+}
+
+form button:hover {
+  opacity: 0.7;
+}
+
+form button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+
+
+
+
+
+
+
+/* LOCATION LIST */
+
+.locations{
+  display:flex;
+  justify-content: center;
+  align-items: left;
+  flex-direction: column;
+}
+
+.location-name:hover {
+  color: var(--color-1);
+}
+
+.location-div{
+  margin-left: 10%;
+}
+
+.location-name{
+  font-family: 'Source Code Pro', monospace;
+  font-size:4ch;
+  font-weight: 900;
+}
+
+h1.location-name img {
+  display: none;
+  position: absolute;
+  left: 700px;
+  width: 300px;
+  height: 200px;
+  border-radius: 10px;
+  border: 7px solid black;
+}
+h1.location-name:hover img {
+  display: inherit;
+}
+
+
+
+
+
+
+
+/* LOCATION DETAILS */
+
+.location-img {
+  border-radius: 20px;
+  width: 60%;
+  margin-left: 20%;
+}
+
+.locationBeach {
+  font-family: 'Rubik Marker Hatch', cursive;
+  margin-left: 8%;
+}
+
+.locationName{
+  font-style: italic;
+  margin-left: 8%;
+}
+
+.comment-form{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.commentBox{
+  width:60%;
+  border-radius: 15px;
+  margin-top:20px;
+  font-family: 'Hind', sans-serif;
+  font-size: 1.8ch;
+}
+
+.postButton{
+  width: 20%;
+}
+
+.back{
+  font-family: 'Source Code Pro', monospace;
+  background-color: var(--color-7);
+}
+
+.back:hover{
+  color: var(--color-1);
+}
+
+
+
+
+
+
+
+
+
+
+/* SPECIFIC COMMENT */
+
+
+.comments {
+  resize: both;
+  overflow: auto;
+  border: 0.5px #000000 solid;
+  border-radius: 15px;
+  padding: 5px;
+  box-shadow: 10px 10px 5px #969696;
+  width: 35%;
+  max-width: 400px;
+  height: 130px;
+  min-height: 75px;
+  margin: 50px;
+  }
+  
+ .overflow-wrap {
+  overflow-wrap: break-word;
+ }
+  
+ h4 {
+  margin: 0;
+  overflow-wrap: break-all;
+ }
+  
+ .comments-button {
+  display: inline-block;
+ }
+  
+  .comments button {
+  margin-top: 30px;
+  margin-left: 35px;
+  font-size: 10px;
+  background-color: var(--color-11);
+  color: var(--color-7);
+}
