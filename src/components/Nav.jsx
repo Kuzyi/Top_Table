@@ -26,7 +26,8 @@ getUsername()
     authenticatedOptions = (
       <nav>
         <h3>Welcome {username}!</h3>
-        <Link to="/LocationList">Surf Spots</Link>
+        <Link to="/LocationList">Games</Link>
+        <Link to="/CreateGame">Create Game</Link>
         <Link onClick={handleLogOut} to="/">
           Sign Out
         </Link>
@@ -38,7 +39,7 @@ getUsername()
     <nav>
       <Link to="/">Home</Link>
       <Link to="/register">Register</Link>
-      <Link to="/LocationList">Surf Spots</Link>
+      <Link to="/LocationList">Games</Link>
     </nav>
   )
 
