@@ -9,3 +9,12 @@ export const CreateNewGame = async (data) => {
     throw error
   }
 }
+
+export const GetGames = async () => {
+  try {
+    const res = await Client.get('/api/game/view')
+    return res.data
+  } catch (error) {
+    throw error
+  }
+}
