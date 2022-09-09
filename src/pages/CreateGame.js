@@ -59,15 +59,7 @@ const CreateGame = () => {
             />
           </div>
 
-          <button
-            disabled={
-              !formValues.email ||
-              (!formValues.password &&
-                formValues.confirmPassword === formValues.password)
-            }
-          >
-            Create Game
-          </button>
+          <button disabled={!formValues.gameName}>Create Game</button>
         </form>
       </div>
     </div>
