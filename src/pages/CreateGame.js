@@ -1,5 +1,5 @@
 import { useState } from 'react'
-// import { RegisterUser } from '../services/Auth'
+import { CreateNewGame } from '../services/calls'
 import { useNavigate } from 'react-router-dom'
 
 const CreateGame = () => {
@@ -18,7 +18,7 @@ const CreateGame = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     console.log(formValues)
-    await RegisterUser({
+    await CreateNewGame({
       gameName: formValues.gameName,
       gameImage: formValues.gameImage
     })
@@ -35,25 +35,25 @@ const CreateGame = () => {
       <div className="card-overlay centered">
         <form className="col" onSubmit={handleSubmit}>
           <div className="input-wrapper">
-            <label htmlFor="username">Name</label>
+            <label htmlFor="username">Game Name</label>
             <input
               onChange={handleChange}
               name="gameName"
               id="gameName"
               type="text"
-              placeholder="John Smith"
+              placeholder="Enter Game Name Here"
               value={formValues.gameName}
               required
             />
           </div>
           <div className="input-wrapper">
-            <label htmlFor="email">Email</label>
+            <label htmlFor="email">Game Image URL</label>
             <input
               onChange={handleChange}
               name="gameImage"
               id="gameImage"
               type="gameImage"
-              placeholder="enter image URL here"
+              placeholder="Enter Image URL Here"
               value={formValues.gameImage}
               required
             />
@@ -66,7 +66,7 @@ const CreateGame = () => {
                 formValues.confirmPassword === formValues.password)
             }
           >
-            Register
+            Create Game
           </button>
         </form>
       </div>
