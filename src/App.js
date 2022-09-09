@@ -9,6 +9,7 @@ import LocationDetails from './pages/LocationDetails'
 import './styles/App.css'
 import { CheckSession } from './services/Auth'
 import axios from 'axios'
+import CreateGame from './pages/CreateGame'
 
 const App = () => {
   // const [location, setLocation] = useState()
@@ -71,6 +72,7 @@ const App = () => {
             }
           />
           <Route path="/register" element={<Register />} />
+          <Route path="/CreateGame" element={<CreateGame />} />
           <Route
             path="/LocationList"
             element={<LocationList user={user} authenticated={authenticated} />}
