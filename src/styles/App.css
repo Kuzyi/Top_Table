@@ -39,7 +39,17 @@ input {
 }
 
 
+.grid-container{
+  display: grid;
+  grid-template-columns: repeat(20, 100px);
+  grid-auto-rows: 100px;
+  margin: 200px;
+}
 
+.grid-item{
+  border: #000000 solid;
+  padding: 10px;
+}
 
 
 
