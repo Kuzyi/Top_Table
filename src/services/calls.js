@@ -18,3 +18,12 @@ export const GetGames = async () => {
     throw error
   }
 }
+
+export const DeleteGame = async (id) => {
+  try {
+    const res = await Client.get(`/api/game/view/${id}`)
+    return res.data
+  } catch (error) {
+    throw error
+  }
+}

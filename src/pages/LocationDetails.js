@@ -3,6 +3,7 @@ import Client from '../services/api'
 import { useState, useEffect } from 'react'
 import SpecificComment from '../components/SpecificComment'
 import { useNavigate } from 'react-router-dom'
+import { DeleteGame } from '../services/calls'
 
 const LocationDetails = ({ user, authenticated }) => {
   let { id } = useParams()
@@ -13,44 +14,49 @@ const LocationDetails = ({ user, authenticated }) => {
   })
   let navigate = useNavigate()
 
-  const handleChange = (e) => {
-    setNewComment({ ...newComment, [e.target.name]: e.target.value })
-    console.log('this is teh new comment', newComment)
-  }
+  // const handleChange = (e) => {
+  //   setNewComment({ ...newComment, [e.target.name]: e.target.value })
+  //   console.log('this is teh new comment', newComment)
+  // }
 
-  const handleSubmit = async (e) => {
-    console.log(
-      'I HIT SUBMIT, here is what is being sent to backend',
-      'content:',
-      newComment.content,
-      'id',
-      id,
-      'user.id:',
-      user.id
-    )
-    e.preventDefault()
-    await Client.post('/api/comments/', {
-      content: newComment.content,
-      locationId: id,
-      userId: user.id
-    })
-    document.location.reload()
-  }
+  // const handleSubmit = async (e) => {
+  //   console.log(
+  //     'I HIT SUBMIT, here is what is being sent to backend',
+  //     'content:',
+  //     newComment.content,
+  //     'id',
+  //     id,
+  //     'user.id:',
+  //     user.id
+  //   )
+  //   e.preventDefault()
+  //   await Client.post('/api/comments/', {
+  //     content: newComment.content,
+  //     locationId: id,
+  //     userId: user.id
+  //   })
+  //   document.location.reload()
+  // }
 
   useEffect(() => {
     const getLocation = async () => {
       const res = await Client.get(`/api/locations/${id}`)
       setLocationDetails(res.data)
     }
-    const getComments = async () => {
-      const res = await Client.get(`/api/comments/${id}`)
-      setComments(res.data)
-      // console.log(res.data)
-    }
+    // const getComments = async () => {
+    //   const res = await Client.get(`/api/comments/${id}`)
+    //   setComments(res.data)
+    //   // console.log(res.data)
+    // }
 
     getLocation()
-    getComments()
+    // getComments()
   }, [id])
+
+  const handleDelete = async () => {
+    const data = await DeleteGame(id)
+    navigate('/LocationList')
+  }
 
   return (
     <div className="location">
@@ -66,7 +72,15 @@ const LocationDetails = ({ user, authenticated }) => {
         alt="{locationDetails.beachName}"
         src={locationDetails.image}
       />
-      <form className="comment-form">
+      {/* <button className="back" onClick={() => navigate('/LocationList')}>
+        Play Game
+      </button> */}
+
+      <button className="back" onClick={() => handleDelete()}>
+        Delete Game
+      </button>
+
+      {/* <form className="comment-form">
         <textarea
           className="commentBox"
           rows="10"
@@ -89,7 +103,7 @@ const LocationDetails = ({ user, authenticated }) => {
             key={comment.id}
           />
         ))}
-      </div>
+      </div> */}
     </div>
   )
 }
