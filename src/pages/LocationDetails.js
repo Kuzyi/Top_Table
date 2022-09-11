@@ -40,7 +40,7 @@ const LocationDetails = ({ user, authenticated }) => {
 
   useEffect(() => {
     const getLocation = async () => {
-      const res = await Client.get(`/api/locations/${id}`)
+      const res = await Client.get(`/api/game/${id}`)
       setLocationDetails(res.data)
     }
     // const getComments = async () => {
@@ -61,20 +61,20 @@ const LocationDetails = ({ user, authenticated }) => {
   return (
     <div className="location">
       <button className="back" onClick={() => navigate('/LocationList')}>
-        Return to Surf Spots
+        Return to Games
       </button>
-      <h1 className="locationBeach">{locationDetails.beachName}</h1>
-      <h3 className="locationName">
-        {locationDetails.city} {locationDetails.state}
-      </h3>
+      <h1 className="locationBeach">{locationDetails.gameName}</h1>
       <img
         className="location-img"
-        alt="{locationDetails.beachName}"
-        src={locationDetails.image}
+        alt="{locationDetails.gameName}"
+        src={locationDetails.gameImage}
       />
-      {/* <button className="back" onClick={() => navigate('/LocationList')}>
+      <button
+        className="back"
+        onClick={() => navigate(`/locations/${locationDetails.id}/GamePage`)}
+      >
         Play Game
-      </button> */}
+      </button>
 
       <button className="back" onClick={() => handleDelete()}>
         Delete Game

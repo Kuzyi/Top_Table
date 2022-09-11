@@ -21,7 +21,7 @@ export const GetGames = async () => {
 
 export const DeleteGame = async (id) => {
   try {
-    const res = await Client.get(`/api/game/view/${id}`)
+    const res = await Client.delete(`/api/game/${id}`)
     return res.data
   } catch (error) {
     throw error
