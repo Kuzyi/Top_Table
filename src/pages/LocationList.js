@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { GetLocations } from '../services/PostServices'
+import { GetGames } from '../services/calls'
 import { useNavigate } from 'react-router-dom'
 
 const LocationList = ({ user, authenticated }) => {
@@ -8,15 +8,15 @@ const LocationList = ({ user, authenticated }) => {
 
   useEffect(() => {
     const handleLocations = async () => {
-      const data = await GetLocations()
+      const data = await GetGames()
 
       setLocations(data)
     }
     handleLocations()
   }, [])
 
-  const showLocationDetails = (locations) => {
-    navigate(`/locations/${locations.id}`)
+  const showLocationDetails = (location) => {
+    navigate(`/locations/${location.id}`)
   }
 
   return (
@@ -28,8 +28,8 @@ const LocationList = ({ user, authenticated }) => {
           key={location.id}
         >
           <h1 className="location-name">
-            <img src={location.image} />
-            {location.beachName}
+            <img src={location.gameImage} />
+            {location.gameName}
           </h1>
         </div>
       ))}
