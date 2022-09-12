@@ -8,7 +8,7 @@ const GamePage = ({ user, authenticated }) => {
   let { id } = useParams()
   const [locationDetails, setLocationDetails] = useState('')
   const [createIconStatus, toggleCreateIconStatus] = useState(false)
-  let [newIcon, setNewIcon] = useState({
+  const [newIcon, setNewIcon] = useState({
     iconName: '',
     iconImage: ''
   })
@@ -18,6 +18,8 @@ const GamePage = ({ user, authenticated }) => {
     const getLocation = async () => {
       const res = await Client.get(`/api/game/${id}`)
       setLocationDetails(res.data)
+
+      console.log(id)
     }
 
     getLocation()
@@ -47,8 +49,10 @@ const GamePage = ({ user, authenticated }) => {
   const handleSubmitIcon = async (e) => {
     e.preventDefault()
     await CreateNewIcon({
-      gameName: newIcon.iconName,
-      gameImage: newIcon.iconImage,
+      iconName: newIcon.iconName,
+      iconImage: newIcon.iconImage,
+      positionx: '0',
+      positiony: '0',
       gameId: id
     })
 
@@ -56,7 +60,7 @@ const GamePage = ({ user, authenticated }) => {
       gameName: '',
       gameImage: ''
     })
-    navigate('/') //change this to game list
+    toggleCreateIconStatus(false)
   }
 
   return (
