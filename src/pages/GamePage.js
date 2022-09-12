@@ -12,6 +12,7 @@ const GamePage = ({ user, authenticated }) => {
     iconName: '',
     iconImage: ''
   })
+  const [icons, setIcons] = useState([])
   let navigate = useNavigate()
 
   useEffect(() => {
@@ -22,7 +23,14 @@ const GamePage = ({ user, authenticated }) => {
       console.log(id)
     }
 
+    const getIcons = async () => {
+      const res = await Client.get(`/api/icon/${id}`)
+      setIcons(res.data)
+      // console.log(res.data)
+    }
+
     getLocation()
+    getIcons()
   }, [id])
 
   const createGrid = () => {
@@ -37,7 +45,6 @@ const GamePage = ({ user, authenticated }) => {
       }
     }
 
-    // console.log(gridArray)
     return gridArray
   }
   let gridArray = createGrid()
@@ -73,10 +80,6 @@ const GamePage = ({ user, authenticated }) => {
         <button
           onClick={() => {
             toggleCreateIconStatus(true)
-            // setNewUpdate({
-            //   content: props.comment.content,
-            //   id: props.comment.id
-            // })
           }}
         >
           Create Game Icon

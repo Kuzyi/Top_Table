@@ -52,7 +52,11 @@ input {
   padding: 10px;
 }
 
+.iconImage {
+  height: 100px;
+  width: 100px;
 
+}
 
 
 /* NAV */
