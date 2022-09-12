@@ -44,6 +44,7 @@ input {
   grid-template-columns: repeat(20, 100px);
   grid-auto-rows: 100px;
   margin: 200px;
+  border: #000000 solid;
 }
 
 .grid-item{
