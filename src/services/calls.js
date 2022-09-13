@@ -27,3 +27,13 @@ export const DeleteGame = async (id) => {
     throw error
   }
 }
+
+export const CreateNewIcon = async (data) => {
+  try {
+    const res = await Client.post('/api/icon/create', data)
+    console.log(res.data)
+    return res.data
+  } catch (error) {
+    throw error
+  }
+}
