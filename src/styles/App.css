@@ -53,9 +53,16 @@ input {
 }
 
 .iconImage {
-  height: 100px;
-  width: 100px;
+  height: 1000px;
+  width: 1000px;
 
+}
+
+.icon {
+  height: 80px;
+  width:80px;
+  border: red solid;
+  border-radius: 40px;
 }
 
 

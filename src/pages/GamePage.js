@@ -3,6 +3,7 @@ import Client from '../services/api'
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { CreateNewIcon } from '../services/calls'
+import Icon from '../components/Icon'
 
 const GamePage = ({ user, authenticated }) => {
   let { id } = useParams()
@@ -131,6 +132,10 @@ const GamePage = ({ user, authenticated }) => {
           ))}
         </div>
       </div>
+      {icons.map((icon) => (
+        <Icon icon={icon} id={id} key={icon.id} />
+      ))}
+      {/* <Icon /> */}
     </div>
   )
 }
