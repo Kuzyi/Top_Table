@@ -1,49 +1,14 @@
-// import Client from '../services/api'
-// import { useState } from 'react'
-// import { useDrag } from 'react-use-gesture'
-
-// const Icon = (props) => {
-//   const [position, setPosition] = useState({
-//     x: 0,
-//     y: 0
-//   })
-
-//   const blindLogoPos = useDrag((params) => {
-//     setPosition({
-//       x: params.offset[0],
-//       y: params.offset[1]
-//     })
-//   })
-
-//   return (
-//     <div
-//       {...blindLogoPos()}
-//       style={{
-//         position: 'relative',
-//         x: position.y,
-//         y: position.x
-//       }}
-//     >
-//       {/* <img
-//         width="100"
-//         height="100"
-//         src="https://www.pngfind.com/pngs/m/0-226_image-checkmark-green-check-mark-circle-hd-png.png"
-//       /> */}
-//       <div className="icon"></div>
-//     </div>
-//   )
-// }
-
-// export default Icon
-
 import { useState } from 'react'
 import { useDrag } from 'react-use-gesture'
+import Client from '../services/api'
 
-const Icon = () => {
+const Icon = (props) => {
   const [logoPos2, setLogoPos2] = useState({
     x: 0,
     y: 0
   })
+
+  const [changeIcon, toggleChangeIcon] = useState(false)
 
   const blindLogoPos2 = useDrag((params) => {
     setLogoPos2({
@@ -51,6 +16,7 @@ const Icon = () => {
       y: params.offset[1]
     })
   })
+
   return (
     <div>
       <div
@@ -60,9 +26,26 @@ const Icon = () => {
           top: logoPos2.y,
           left: logoPos2.x
         }}
+        onClick={() => {
+          toggleChangeIcon(true)
+        }}
       >
-        <div className="icon"></div>
-        {/* <img src="https://i.kym-cdn.com/photos/images/newsfeed/000/813/182/1cc.png" /> */}
+        <div className="icon">
+          <img src={props.icon.iconImage} />
+          {changeIcon ? (
+            <button
+              onClick={async () => {
+                const iconToDelete = parseInt(props.icon.id)
+                await Client.delete(`/api/icon/${iconToDelete}`)
+                // document.location.reload() we need to find a way to update the page on this change
+              }}
+            >
+              Delete Icon
+            </button>
+          ) : (
+            <span></span>
+          )}
+        </div>
       </div>
     </div>
   )
