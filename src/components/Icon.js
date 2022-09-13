@@ -3,9 +3,14 @@ import { useDrag } from 'react-use-gesture'
 import Client from '../services/api'
 
 const Icon = (props) => {
+  let x = parseInt(props.icon.positonx)
+  let y = parseInt(props.icon.positony)
+  console.log(typeof props.icon.positionx)
+  // console.log(props.icon.positiony)
+  console.log(x)
   const [logoPos2, setLogoPos2] = useState({
-    x: 0,
-    y: 0
+    x: x,
+    y: y
   })
 
   const [changeIcon, toggleChangeIcon] = useState(false)
@@ -35,6 +40,7 @@ const Icon = (props) => {
           {changeIcon ? (
             <button
               onClick={async () => {
+                console.log(props.icon.id)
                 const iconToDelete = parseInt(props.icon.id)
                 await Client.delete(`/api/icon/${iconToDelete}`)
                 // document.location.reload() we need to find a way to update the page on this change
