@@ -23,6 +23,7 @@ const Home = ({ user, authenticated, setUser, toggleAuthenticated }) => {
     <div className="home-container col">
       <img src="https://imgur.com/yeAWtvH.png" alt="kelp-logo" />
       <SignIn setUser={setUser} toggleAuthenticated={toggleAuthenticated} />
+      <p>oh hey heroku</p>
     </div>
   )
 
