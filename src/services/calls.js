@@ -28,6 +28,11 @@ export const DeleteGame = async (id) => {
   }
 }
 
+export const putUpdateGame = async (id, body) => {
+  console.log(id)
+  await Client.put(`/api/game/update/${id}`, body)
+}
+
 export const CreateNewIcon = async (data) => {
   try {
     const res = await Client.post('/api/icon/create', data)

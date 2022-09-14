@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { CreateNewIcon } from '../services/calls'
 import Icon from '../components/Icon'
+import DiceRoller from '../components/DiceRoller'
 
 const GamePage = ({ user, authenticated }) => {
   let { id } = useParams()
@@ -20,8 +21,6 @@ const GamePage = ({ user, authenticated }) => {
     const getLocation = async () => {
       const res = await Client.get(`/api/game/${id}`)
       setLocationDetails(res.data)
-
-      console.log(id)
     }
 
     const getIcons = async () => {
@@ -59,8 +58,8 @@ const GamePage = ({ user, authenticated }) => {
     await CreateNewIcon({
       iconName: newIcon.iconName,
       iconImage: newIcon.iconImage,
-      positionx: '0',
-      positiony: '0',
+      positionx: 0,
+      positiony: 0,
       gameId: id
     })
 
@@ -71,6 +70,9 @@ const GamePage = ({ user, authenticated }) => {
     toggleCreateIconStatus(false)
   }
 
+  // dice roller
+  const dieArray = [4, 6, 10, 12, 20]
+
   return (
     <div>
       <div className="location">
@@ -78,16 +80,21 @@ const GamePage = ({ user, authenticated }) => {
           Return to Games
         </button>
         <h1 className="locationBeach">{locationDetails.gameName}</h1>
-        <button
-          onClick={() => {
-            toggleCreateIconStatus(true)
-          }}
-        >
-          Create Game Icon
-        </button>
+        <div className="gameButtonContainer">
+          <button
+            onClick={() => {
+              toggleCreateIconStatus(true)
+            }}
+          >
+            Create Token
+          </button>
+          {dieArray.map((dice) => (
+            <DiceRoller dice={dice} />
+          ))}
+        </div>
         {createIconStatus ? (
           <div className="signin col">
-            <div className="card-overlay centered">
+            <div className="iconOptions card-overlay centered">
               <form className="col" onSubmit={handleSubmitIcon}>
                 <div className="input-wrapper">
                   <label htmlFor="iconName">iconName</label>
@@ -123,19 +130,22 @@ const GamePage = ({ user, authenticated }) => {
             </div>
           </div>
         ) : (
-          <p className="overflow-wrap">do nothing</p>
+          <span></span>
         )}
 
-        <div class="grid-container">
-          {gridArray.map((gridxy) => (
-            <div className={'grid-item ' + gridxy[0] + ' ' + gridxy[1]}></div>
+        <div className="gamePlayContainer">
+          <div class="grid-container">
+            {gridArray.map((gridxy) => (
+              <div className={'grid-item ' + gridxy[0] + ' ' + gridxy[1]}></div>
+            ))}
+          </div>
+        </div>
+        <div className="iconContainer">
+          {icons.map((icon) => (
+            <Icon icon={icon} id={id} key={icon.id} />
           ))}
         </div>
       </div>
-      {icons.map((icon) => (
-        <Icon icon={icon} id={id} key={icon.id} />
-      ))}
-      {/* <Icon /> */}
     </div>
   )
 }

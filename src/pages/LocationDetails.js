@@ -80,6 +80,10 @@ const LocationDetails = ({ user, authenticated }) => {
         Delete Game
       </button>
 
+      <button className="back" onClick={() => navigate(`/updategame/${id}`)}>
+        Update Game
+      </button>
+
       {/* <form className="comment-form">
         <textarea
           className="commentBox"

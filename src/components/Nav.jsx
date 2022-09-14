@@ -44,14 +44,16 @@ getUsername()
   )
 
   return (
+    <div class= 'navContainer'>
     <header>
       <Link to="/">
         <div className="logo-wrapper" alt="logo">
-        <img className='kelp-logo' src="https://i.imgur.com/LWwA2ZI.png" />
+        <img className='toptable-logo' src="https://i.imgur.com/zhF7TGB.png" />
         </div>
       </Link>
       {authenticated && user ? authenticatedOptions : publicOptions}
     </header>
+    </div>
   )
 }
 

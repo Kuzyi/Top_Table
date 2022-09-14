@@ -1,16 +1,19 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useDrag } from 'react-use-gesture'
 import Client from '../services/api'
 
 const Icon = (props) => {
-  let x = parseInt(props.icon.positonx)
-  let y = parseInt(props.icon.positony)
-  console.log(typeof props.icon.positionx)
+  // console.log(props.icon)
+  // let x = props.icon.positonx
+  // let y = props.icon.positony
+  // console.log(props.icon.positionx)
   // console.log(props.icon.positiony)
-  console.log(x)
+  // console.log(x)
   const [logoPos2, setLogoPos2] = useState({
-    x: x,
-    y: y
+    // x: props.icon.positionx,
+    // y: props.icon.positiony
+    x: 0,
+    y: 0
   })
 
   const [changeIcon, toggleChangeIcon] = useState(false)
@@ -20,7 +23,20 @@ const Icon = (props) => {
       x: params.offset[0],
       y: params.offset[1]
     })
+
+    //   const handleSubmitUpdate = async (e) => {
+    //     e.preventDefault()
+    //     await Client.put(`/api/icon/move/${props.icon.id}`, {
+    //       positionx: logoPos2.x,
+    //       positiony: logoPos2.y
+    //     })
+    //   }
+    //   handleSubmitUpdate()
   })
+
+  // useEffect(() => {
+  //   props.getIcons()
+  // }, [props.icon.id])
 
   return (
     <div>
@@ -40,7 +56,8 @@ const Icon = (props) => {
           {changeIcon ? (
             <button
               onClick={async () => {
-                console.log(props.icon.id)
+                // console.log(props.icon.id)
+                console.log('click')
                 const iconToDelete = parseInt(props.icon.id)
                 await Client.delete(`/api/icon/${iconToDelete}`)
                 // document.location.reload() we need to find a way to update the page on this change

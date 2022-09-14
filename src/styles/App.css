@@ -11,18 +11,19 @@
   --color-4: #838c8b;
   --color-5: #746c71;
   --color-6: #c0c6cc;
-  --color-7: #f4f3f7;
+  --color-background: #8bb4a1;
   --color-8: #273a47;
   --color-9: #eaf4f6;
   --color-10: #6d727a;
   --color-11: #000000;
+  --color-input-boxes: #4e4f5c;
 }
 
 body {
   font-family: 'Open Sans', sans-serif;
   margin: 0;
   padding: 0;
-  background-color: var(--color-7);
+  background-color: var(--color-background);
 }
 
 button {
@@ -39,9 +40,36 @@ img {
   border-radius: 30px;
 }
 
+video {
+  width:30%;
+  height: 30%;
+}
+
 button,
 input {
   border-radius: 8px;
+}
+
+form {
+  background-color: var(--color-input-boxes);
+}
+
+
+.gameButtonContainer{
+  display:flex;
+  position: fixed;
+
+  border: solid black;
+  border-radius: 20px;
+  background-color: #4c4b4e;
+}
+
+.gameButtonItem{
+  margin: 10px
+}
+
+.gamePlayContainer{
+  display: flex;
 }
 
 
@@ -50,12 +78,32 @@ input {
   grid-template-columns: repeat(20, 100px);
   grid-auto-rows: 100px;
   margin: 200px;
-  border: #000000 solid;
+  /* border: #000000 solid; */
+}
+
+.iconContainer{
+  background-color: var(--color-background);
+  height:100px;
+  width:100px
+}
+
+.navContainer {
+  position: relative;
 }
 
 .grid-item{
   border: #000000 solid;
   padding: 10px;
+  background-color: var(--color-9);
+}
+
+.diceContainer{
+  display:flexbox
+}
+
+
+.iconOptions {
+  position: fixed;
 }
 
 .iconImage {
@@ -82,8 +130,8 @@ header {
 background-color: var(--color-11);
 }
 
-.kelp-logo{
-  width:15%;
+.toptable-logo{
+  width:20%;
   margin-top: 5px;
 }
 
@@ -96,7 +144,7 @@ nav a,
 nav h3 {
   text-decoration-color: var(--color-11);
   margin: auto 1em;
-  color: var(--color-7);
+  color: var(--color-background);
   padding: 5px 10px;
   border-radius: 6px;
   font-weight: 800;
@@ -153,9 +201,11 @@ main {
 
 .home-container,
 .signin {
-  min-height: calc(100vh - 4em);
+  min-height: calc(1vh - 4em);
   align-items: center;
   justify-content: center;
+  margin-bottom: 200px;
+  margin-top: 100px;
 }
 
 
@@ -173,6 +223,8 @@ main {
   padding: 1em;
   border-radius: 8px;
   box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.3);
+  color: var(--color-input-boxes);
+  background-color: var(--color-input-boxes);
 }
 
 .input-wrapper input {
@@ -223,7 +275,7 @@ input::placeholder {
 form button {
   background-color: var(--color-11);
   margin: 1em 0;
-  color: var(--color-7);
+  color: var(--color-input-boxes);
   align-self: center;
   width: 100%;
 }
@@ -324,7 +376,7 @@ h1.location-name:hover img {
 
 .back{
   font-family: 'Source Code Pro', monospace;
-  background-color: var(--color-7);
+  background-color: var(--color-input-boxes);
 }
 
 .back:hover{
@@ -375,5 +427,5 @@ h1.location-name:hover img {
   margin-left: 35px;
   font-size: 10px;
   background-color: var(--color-11);
-  color: var(--color-7);
+  color: var(--color-input-boxes);
 }

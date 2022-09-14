@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import SignIn from './SignIn'
+import Toptable from './video/toptable.mp4'
 
 const Home = ({ user, authenticated, setUser, toggleAuthenticated }) => {
   let navigate = useNavigate()
@@ -8,11 +9,13 @@ const Home = ({ user, authenticated, setUser, toggleAuthenticated }) => {
   if (user) {
     authenticatedOptions = (
       <div className="home-container col">
-        <img src="https://imgur.com/yeAWtvH.png" alt="kelp-logo" />
+        <video autoPlay muted>
+          <source src={Toptable} type="video/mp4"></source>
+        </video>
         <div>Hello, {user.username}</div>
         <section className="welcome-signin">
           <button onClick={() => navigate('/LocationList')}>
-            Check out our locations!
+            Check out open games!
           </button>
         </section>
       </div>
@@ -21,9 +24,11 @@ const Home = ({ user, authenticated, setUser, toggleAuthenticated }) => {
 
   const publicOptions = (
     <div className="home-container col">
-      <img src="https://imgur.com/yeAWtvH.png" alt="kelp-logo" />
+      <video autoPlay muted>
+        <source src={Toptable} type="video/mp4"></source>
+      </video>
+
       <SignIn setUser={setUser} toggleAuthenticated={toggleAuthenticated} />
-      <p>oh hey heroku</p>
     </div>
   )
 

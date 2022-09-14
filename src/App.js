@@ -11,6 +11,7 @@ import { CheckSession } from './services/Auth'
 import axios from 'axios'
 import CreateGame from './pages/CreateGame'
 import GamePage from './pages/GamePage'
+import UpdateGame from './pages/UpdateGame'
 
 const App = () => {
   // const [location, setLocation] = useState()
@@ -83,6 +84,11 @@ const App = () => {
             element={
               <LocationDetails user={user} authenticated={authenticated} />
             }
+          />
+
+          <Route
+            path="/updategame/:id"
+            element={<UpdateGame user={user} authenticated={authenticated} />}
           />
           <Route
             path="/locations/:id/GamePage"
