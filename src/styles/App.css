@@ -82,6 +82,7 @@ form {
 }
 
 .iconContainer{
+  user-select: none;
   background-color: var(--color-background);
   height:100px;
   width:100px

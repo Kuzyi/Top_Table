@@ -68,6 +68,7 @@ const GamePage = ({ user, authenticated }) => {
       gameImage: ''
     })
     toggleCreateIconStatus(false)
+    document.location.reload()
   }
 
   // dice roller

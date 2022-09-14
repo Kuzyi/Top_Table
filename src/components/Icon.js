@@ -48,7 +48,11 @@ const Icon = (props) => {
           left: logoPos2.x
         }}
         onClick={() => {
-          toggleChangeIcon(true)
+          if (changeIcon === false) {
+            toggleChangeIcon(true)
+          } else {
+            toggleChangeIcon(false)
+          }
         }}
       >
         <div className="icon">
@@ -60,7 +64,8 @@ const Icon = (props) => {
                 console.log('click')
                 const iconToDelete = parseInt(props.icon.id)
                 await Client.delete(`/api/icon/${iconToDelete}`)
-                // document.location.reload() we need to find a way to update the page on this change
+
+                document.location.reload()
               }}
             >
               Delete Icon
