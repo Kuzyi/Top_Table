@@ -27,7 +27,7 @@ const CreateGame = () => {
       gameName: '',
       gameImage: ''
     })
-    navigate('/') //change this to game list
+    navigate('/LocationList') //change this to game list
   }
 
   return (

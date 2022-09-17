@@ -1,7 +1,3 @@
-import { useState, useEffect } from 'react'
-import { useDrag } from 'react-use-gesture'
-import Client from '../services/api'
-
 const DiceRoller = (props) => {
   // const [changeIcon, toggleChangeIcon] = useState(false)
 
